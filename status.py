@@ -10,7 +10,7 @@ try:
             status=requests.get('http://{}:{}/connectors/{}/status'.format(os.environ['CONNECT_HOST'],os.environ['CONNECT_PORT'],connector)).json()
             status_json=json.dumps(status)
             print(status_json)
-        sleep(os.environ['SLEEP_TIME'])
+        sleep(int(os.environ['SLEEP_TIME']))
 except:
     raise
 
