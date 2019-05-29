@@ -2,5 +2,4 @@ FROM python:alpine3.7
 COPY . /app
 WORKDIR /app
 RUN pip install -r requirements.txt
-#EXPOSE 32191
 CMD python ./status.py
