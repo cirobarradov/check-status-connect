@@ -1,6 +1,6 @@
 import os
 import requests
-import time
+from time import sleep
 import json
 try:
     while True:
