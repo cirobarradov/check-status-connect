@@ -12,7 +12,7 @@ try:
         request_id=str(uuid.uuid1())
         connectors=r.json()
         for connector in connectors:
-            request_timestamp=str(datetime.now())
+            request_timestamp=str(datetime.utcnow())
             status=requests.get('http://{}:{}/connectors/{}/status'.format(os.environ['CONNECT_HOST'],os.environ['CONNECT_PORT'],connector)).json()
             config=requests.get('http://{}:{}/connectors/{}'.format(os.environ['CONNECT_HOST'],os.environ['CONNECT_PORT'],connector)).json()['config']
             status['config']=config
