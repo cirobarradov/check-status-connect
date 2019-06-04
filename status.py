@@ -6,8 +6,8 @@ from datetime import datetime
 from time import sleep
 import json
 
-try:
-    while True:
+while True:
+    try:
         r = requests.get('http://{}:{}/connectors'.format(os.environ['CONNECT_HOST'],os.environ['CONNECT_PORT']))    
         request_id=str(uuid.uuid1())
         connectors=r.json()
@@ -21,6 +21,9 @@ try:
             status['request_timestamp']=request_timestamp
             status_json=json.dumps(status)           
             print(status_json)
-        sleep(int(os.environ['SLEEP_TIME']))
-except:
-    raise
+    
+    except:        
+        error_message={"error_code":"404","message":"kafka connect exception"}
+        print(json.dumps(error_message))
+        pass
+    sleep(int(os.environ['SLEEP_TIME']))
