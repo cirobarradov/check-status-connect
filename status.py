@@ -24,7 +24,7 @@ while True:
     
     except:        
         request_timestamp=str(datetime.utcnow())
-        error_message={"error_code":"404","message":"kafka connect exception","request_timestamp"=request_timestamp}
+        error_message={"error_code":"404","message":"kafka connect exception","request_timestamp":request_timestamp}
         print(json.dumps(error_message))
         pass
     sleep(int(os.environ['SLEEP_TIME']))
